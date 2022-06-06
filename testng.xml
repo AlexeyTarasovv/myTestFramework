@@ -9,6 +9,11 @@
                     <include name="test2"/>
                 </methods>
             </class>
+            <class name="com.test.tests.HomePageTests">
+                <methods>
+                    <include name="test3"/>
+                </methods>
+            </class>
         </classes>
     </test>
 </suite>
