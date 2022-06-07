@@ -10,12 +10,7 @@ public final class LoginPageTests extends BaseTest{
     private LoginPageTests() {}
 
     @Test
-    public void test1(){
-        Driver.driver.findElement(By.name("q")).sendKeys("Automation", Keys.ENTER);
-    }
-
-    @Test
     public void test2(){
-        Driver.driver.findElement(By.name("q")).sendKeys("Testing mini bytes", Keys.ENTER);
+        Driver.getDriver().findElement(By.name("q")).sendKeys("Testing mini bytes", Keys.ENTER);
     }
 }

@@ -7,8 +7,10 @@ import org.testng.annotations.Test;
 
 public class HomePageTests extends BaseTest{
 
+    private HomePageTests() {}
+
     @Test
     public void test3(){
-        Driver.driver.findElement(By.name("q")).sendKeys("Testing mini bytes", Keys.ENTER);
+        Driver.getDriver().findElement(By.name("q")).sendKeys("Testing mini bytes", Keys.ENTER);
     }
 }
