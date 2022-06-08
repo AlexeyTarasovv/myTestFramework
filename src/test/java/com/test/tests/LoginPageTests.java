@@ -14,4 +14,9 @@ public final class LoginPageTests extends BaseTest{
     public void test2(){
         DriverManager.getDriver().findElement(By.name("q")).sendKeys("Testing mini bytes", Keys.ENTER);
     }
+
+    @Test
+    public void test3(){
+        DriverManager.getDriver().findElement(By.name("q")).sendKeys("Testing mini bytes", Keys.ENTER);
+    }
 }

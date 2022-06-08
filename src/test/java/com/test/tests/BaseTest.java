@@ -4,17 +4,19 @@ import com.test.driver.Driver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
+import java.io.IOException;
+
 public class BaseTest {
 
     protected BaseTest() {}
 
     @BeforeMethod
-    public void setUp(){
+    protected void setUp() throws IOException {
         Driver.initDriver();
     }
 
     @AfterMethod
-    public void tearDown() {
+    protected void tearDown() {
         Driver.quitDriver();
     }
 }
