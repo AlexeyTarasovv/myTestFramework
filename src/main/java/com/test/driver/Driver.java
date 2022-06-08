@@ -9,7 +9,7 @@ import java.util.Objects;
 
 public final class Driver {
 
-    public static void initDriver() throws IOException {
+    public static void initDriver() {
         if(Objects.isNull(DriverManager.getDriver())) {
             System.setProperty("webdriver.chrome.driver", FrameworkConstants.getChromedriverpath());
             DriverManager.setDriver(new ChromeDriver());
