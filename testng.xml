@@ -3,8 +3,7 @@
 <suite name="All Test Suite">
     <test thread-count="2" name="test" parallel="methods">
         <classes>
-            <class name="com.test.tests.LoginPageTests"></class>
-            <class name="com.test.tests.HomePageTests"></class>
+            <class name="com.test.tests.HomePageTests"/>
         </classes>
     </test>
 </suite>

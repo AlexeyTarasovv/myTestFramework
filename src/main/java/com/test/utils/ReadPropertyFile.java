@@ -1,5 +1,7 @@
 package com.test.utils;
 
+import com.test.constants.FrameworkConstants;
+
 import java.io.FileInputStream;
 import java.util.HashMap;
 import java.util.Map;
@@ -15,7 +17,7 @@ public class ReadPropertyFile {
 
     static {
         try {
-            FileInputStream file = new FileInputStream(System.getProperty("user.dir") + "/src/test/resources/config/config.properties");
+            FileInputStream file = new FileInputStream(FrameworkConstants.getConfigfilepath());
             property.load(file);
 
             //converting to HashMap
