@@ -4,10 +4,11 @@ import com.test.constants.FrameworkConstants;
 import com.test.utils.ReadPropertyFile;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import java.io.IOException;
 import java.util.Objects;
 
 public final class Driver {
+
+    private Driver() {}
 
     public static void initDriver() {
         if(Objects.isNull(DriverManager.getDriver())) {
