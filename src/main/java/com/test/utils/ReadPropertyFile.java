@@ -16,13 +16,13 @@ public class ReadPropertyFile {
     private ReadPropertyFile() {}
 
     static {
-        try {
-            FileInputStream file = new FileInputStream(FrameworkConstants.getConfigfilepath());
+        try (FileInputStream file = new FileInputStream(FrameworkConstants.getConfigfilepath())) {
+
             property.load(file);
 
             //converting to HashMap
             for (Map.Entry<Object, Object> entry : property.entrySet()) {
-                CONFIG_MAP.put(String.valueOf(entry.getKey()), String.valueOf(entry.getValue()));
+                CONFIG_MAP.put(String.valueOf(entry.getKey()), String.valueOf(entry.getValue()).trim());
             }
             /*
             foreach with lambda expression
@@ -43,10 +43,9 @@ public class ReadPropertyFile {
     //way of using property directly
     public static String getValue(String key) {
 
-        String value;
-
+        String value = property.getProperty(key);
         //Exception in case of no property value in property file and key is null
-        if (Objects.isNull(value = property.getProperty(key)) || Objects.isNull(key)) throw new NullPointerException("Property name " + key + " is not found. Please check config.properties");
+        if (Objects.isNull(value) || Objects.isNull(key)) throw new NullPointerException("Property name " + key + " is not found. Please check config.properties");
         return value;
     }
 }
