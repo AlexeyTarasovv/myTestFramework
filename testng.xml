@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
-    <test thread-count="2" name="test" parallel="methods">
+    <test thread-count="1" name="test" parallel="methods">
         <classes>
-            <class name="com.test.tests.HomePageTests"/>
+            <class name="com.test.tests.OrangeHRMTests"/>
         </classes>
     </test>
 </suite>
