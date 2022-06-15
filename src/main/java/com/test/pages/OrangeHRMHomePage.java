@@ -1,18 +1,14 @@
 package com.test.pages;
 
-import com.test.driver.DriverManager;
 import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
-
-public class OrangeHRMHomePage {
+public final class OrangeHRMHomePage extends BasePage {
 
     private final By linkWelcome = By.id("welcome");
     private final By linkLogout = By.xpath("//div[@id='welcome-menu']//a[text()='Logout']");
 
     public OrangeHRMHomePage clickWelcome() {
-        DriverManager.getDriver().findElement(linkWelcome).click();
+        click(linkWelcome, "present");
         return this;
     }
 
@@ -22,9 +18,7 @@ public class OrangeHRMHomePage {
         Uninterruptibles.sleepUninterruptibly(Duration.ofSeconds(3));
         */
 
-        new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(5))
-                .until(driver -> driver.findElement(linkLogout).isEnabled());
-        DriverManager.getDriver().findElement(linkLogout).click();
+        click(linkLogout, "clickable");
         return new OrangeHRMLoginPage();
     }
 }
