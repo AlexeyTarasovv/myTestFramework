@@ -1,5 +1,6 @@
 package com.test.pages;
 
+import com.test.enums.WaitStrategy;
 import org.openqa.selenium.By;
 
 public final class OrangeHRMHomePage extends BasePage {
@@ -8,7 +9,7 @@ public final class OrangeHRMHomePage extends BasePage {
     private final By linkLogout = By.xpath("//div[@id='welcome-menu']//a[text()='Logout']");
 
     public OrangeHRMHomePage clickWelcome() {
-        click(linkWelcome, "present");
+        click(linkWelcome, WaitStrategy.PRESENCE);
         return this;
     }
 
@@ -18,7 +19,7 @@ public final class OrangeHRMHomePage extends BasePage {
         Uninterruptibles.sleepUninterruptibly(Duration.ofSeconds(3));
         */
 
-        click(linkLogout, "clickable");
+        click(linkLogout, WaitStrategy.CLICKABLE);
         return new OrangeHRMLoginPage();
     }
 }

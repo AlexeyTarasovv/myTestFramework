@@ -1,49 +1,26 @@
 package com.test.pages;
 
 import com.test.driver.DriverManager;
+import com.test.enums.WaitStrategy;
+import com.test.factories.ExplicitWaitFactory;
 import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
+import org.openqa.selenium.WebElement;
 
 public class BasePage {
 
-    protected void click(By by, String waitStrategy) {
-        if (waitStrategy.equalsIgnoreCase("clickable")){
-            explicitlyWaitForElementToBeClickable(by);
-        }
-        else if (waitStrategy.equalsIgnoreCase("present")){
-            explicitlyWaitForElementToBeBePresent(by);
-        }
+    protected void click(By by, WaitStrategy waitStrategy) {
 
-        DriverManager.getDriver().findElement(by).click();
+        WebElement element = ExplicitWaitFactory.performExplicitWait(waitStrategy, by);
+        element.click();
     }
 
-    protected void sendKeys(By by, String value, String waitStrategy){
-        if (waitStrategy.equalsIgnoreCase("clickable")){
-            explicitlyWaitForElementToBeClickable(by);
-        }
-        else if (waitStrategy.equalsIgnoreCase("present")){
-            explicitlyWaitForElementToBeBePresent(by);
-        }
+    protected void sendKeys(By by, String value, WaitStrategy waitStrategy){
 
-        DriverManager.getDriver().findElement(by).sendKeys(value);
+        WebElement element = ExplicitWaitFactory.performExplicitWait(waitStrategy, by);
+        element.sendKeys(value);
     }
 
     protected String getPageTitle() {
         return DriverManager.getDriver().getTitle();
-    }
-
-    private void explicitlyWaitForElementToBeClickable(By by){
-        new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(5))
-                .until(ExpectedConditions.elementToBeClickable(by));
-//         .until(driver -> driver.findElement(by).isDisplayed()); old-fashioned way
-    }
-
-    private void explicitlyWaitForElementToBeBePresent(By by){
-        new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(5))
-                .until(ExpectedConditions.presenceOfElementLocated(by));
-//         .until(driver -> driver.findElement(by).isDisplayed()); old-fashioned way
     }
 }
