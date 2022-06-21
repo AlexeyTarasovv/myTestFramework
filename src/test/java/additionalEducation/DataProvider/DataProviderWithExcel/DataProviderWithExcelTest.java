@@ -1,4 +1,4 @@
-package DataProvider;
+package additionalEducation.DataProvider.DataProviderWithExcel;
 
 import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -56,7 +56,8 @@ public class DataProviderWithExcelTest {
     @DataProvider
     public Object[][] dataProviderWithExcelArray(){
 
-        try(FileInputStream fs = new FileInputStream(System.getProperty("user.dir") + "/src/test/java/DataProvider/inputValues.xlsx"))
+        try(FileInputStream fs = new FileInputStream(System.getProperty("user.dir")
+                + "/src/test/java/additionalEducation/DataProvider/DataProviderWithExcel/inputValues.xlsx"))
         {
             XSSFWorkbook workbook = new XSSFWorkbook(fs);
             XSSFSheet sheet = workbook.getSheet("Sheet1");

@@ -1,4 +1,4 @@
-package DataProvider;
+package additionalEducation.DataProvider.DataProviderWithExcel;
 
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
