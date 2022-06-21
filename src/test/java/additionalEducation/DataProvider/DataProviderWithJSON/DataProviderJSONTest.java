@@ -28,9 +28,9 @@ public class DataProviderJSONTest {
                 .readValue(new File(System.getProperty("user.dir") + "/src/test/java/additionalEducation/DataProvider/DataProviderWithJSON/config2.json"),
                         new TypeReference<HashMap<String, Object>>() {});
 
-        Object[][] objects = new Object[1][1];
-        map1.putAll(map2);
+        Object[][] objects = new Object[2][1];
         objects[0][0] = map1;
+        objects[1][0] = map2;
 
         return objects;
     }
