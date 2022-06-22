@@ -9,12 +9,12 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Properties;
 
-public class ReadPropertyFile {
+public class PropertyUtils {
 
     private static final Properties property = new Properties();
     private static final Map<String, String> CONFIG_MAP = new HashMap<>();
 
-    private ReadPropertyFile() {}
+    private PropertyUtils() {}
 
     static {
         try (FileInputStream file = new FileInputStream(FrameworkConstants.getConfigfilepath())) {

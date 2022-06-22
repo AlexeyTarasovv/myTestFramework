@@ -1,26 +1,31 @@
 package com.test.tests;
 
-import com.test.driver.DriverManager;
-import com.test.pages.OrangeHRMHomePage;
 import com.test.pages.OrangeHRMLoginPage;
 import org.assertj.core.api.Assertions;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
-import java.time.Duration;
 
 public final class OrangeHRMTests extends BaseTest{
 
     private OrangeHRMTests(){}
 
-    @Test
-    public void loginLogoutTest() throws InterruptedException {
+    @Test(dataProvider = "LoginTestDataProvider")
+    public void loginLogoutTest(String username, String password) throws InterruptedException {
 
         String title = new OrangeHRMLoginPage()
-                .enterUserName("Admin").enterPassword("admin123").clickLogin()
+                .enterUserName(username).enterPassword(password).clickLogin()
                 .clickWelcome().clickLogout()
                 .getTitle();
 
         Assertions.assertThat(title)
                 .isEqualTo("OrangeHRM");
+    }
+
+    @DataProvider(name="LoginTestDataProvider", parallel = true)
+    public Object[][] getData(){
+        return new Object[][] {
+                {"Admin", "admin123"},
+                {"Admin11111", "addddddd"}
+        };
     }
 }
