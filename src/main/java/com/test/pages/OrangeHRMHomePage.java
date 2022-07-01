@@ -12,7 +12,7 @@ public final class OrangeHRMHomePage extends BasePage {
 
     public OrangeHRMHomePage clickWelcome() {
         click(linkWelcome, WaitStrategy.PRESENCE);
-        ExtentManager.getTest().pass("welcome clicked");
+        ExtentManager.getTest().pass("Welcome clicked");
         return this;
     }
 
@@ -23,7 +23,7 @@ public final class OrangeHRMHomePage extends BasePage {
         */
 
         click(linkLogout, WaitStrategy.CLICKABLE);
-        ExtentManager.getTest().pass("logout button clicked");
+        ExtentManager.getTest().pass("Logout button clicked");
         return new OrangeHRMLoginPage();
     }
 }

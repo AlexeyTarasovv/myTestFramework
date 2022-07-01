@@ -1,6 +1,7 @@
 package com.test.tests;
 
 import com.test.pages.OrangeHRMLoginPage;
+import com.test.reports.ExtentReport;
 import org.assertj.core.api.Assertions;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -11,6 +12,7 @@ public final class OrangeHRMWithDataProviderTests extends BaseTest{
 
     @Test(dataProvider = "LoginTestDataProvider")
     public void loginLogoutTest(String username, String password) {
+        ExtentReport.createTest(new Object(){}.getClass().getEnclosingMethod().getName());
 
         String title = new OrangeHRMLoginPage()
                 .enterUserName(username).enterPassword(password).clickLogin()
@@ -25,7 +27,7 @@ public final class OrangeHRMWithDataProviderTests extends BaseTest{
     public Object[][] getData(){
         return new Object[][] {
                 {"Admin", "admin123"},
-                {"Admin11111", "addddddd"}
+                {"Admin", "admin123"}
         };
     }
 }
