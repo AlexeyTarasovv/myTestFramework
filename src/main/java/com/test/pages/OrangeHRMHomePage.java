@@ -1,6 +1,7 @@
 package com.test.pages;
 
 import com.test.enums.WaitStrategy;
+import com.test.reports.ExtentLogger;
 import com.test.reports.ExtentManager;
 import com.test.reports.ExtentReport;
 import org.openqa.selenium.By;
@@ -11,8 +12,7 @@ public final class OrangeHRMHomePage extends BasePage {
     private final By linkLogout = By.xpath("//div[@id='welcome-menu']//a[text()='Logout']");
 
     public OrangeHRMHomePage clickWelcome() {
-        click(linkWelcome, WaitStrategy.PRESENCE);
-        ExtentManager.getTest().pass("Welcome clicked");
+        click(linkWelcome, WaitStrategy.PRESENCE, "Welcome link");
         return this;
     }
 
@@ -22,8 +22,7 @@ public final class OrangeHRMHomePage extends BasePage {
         Uninterruptibles.sleepUninterruptibly(Duration.ofSeconds(3));
         */
 
-        click(linkLogout, WaitStrategy.CLICKABLE);
-        ExtentManager.getTest().pass("Logout button clicked");
+        click(linkLogout, WaitStrategy.CLICKABLE, "Logout button");
         return new OrangeHRMLoginPage();
     }
 }
