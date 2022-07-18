@@ -1,7 +1,6 @@
 package com.test.tests;
 
 import com.test.driver.Driver;
-import com.test.reports.ExtentReport;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
@@ -13,7 +12,6 @@ public class BaseTest {
 
     @BeforeMethod
     protected void setUp(Method m) throws Exception {
-
         Driver.initDriver();
     }
 

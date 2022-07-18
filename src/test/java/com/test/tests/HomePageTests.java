@@ -2,6 +2,11 @@ package com.test.tests;
 
 import com.test.driver.DriverManager;
 import static org.assertj.core.api.Assertions.*;
+
+import com.test.enums.WaitStrategy;
+import com.test.pages.OrangeHRMHomePage;
+import com.test.pages.OrangeHRMLoginPage;
+import org.assertj.core.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -15,24 +20,12 @@ public class HomePageTests extends BaseTest{
     private HomePageTests() {}
 
     @Test
-    public void test3(){
-        WebDriver driver = DriverManager.getDriver();
+    public void dashboardTextCheck(){
+        new OrangeHRMLoginPage()
+                .enterUserName("Admin").enterPassword("admin123").clickLogin();
 
-        driver.findElement(By.xpath("//input[@id='searchInput']")).sendKeys("QA Testing", Keys.ENTER);
-
-        //QA Testing - Search results - Wikipedia
-        String title = driver.getTitle();
-        assertThat(title)
-                .as("Object is actually null").isNotNull()
-                .containsIgnoringCase("wikipedia")
-                .as("Doesn't have size between 15 and 100").hasSizeBetween(15, 100);
-
-
-        List<WebElement> links = driver.findElements(By.xpath("//ul[@class='mw-search-results']/li/div/a"));
-
-        assertThat(links)
-                .hasSize(20)
-                .extracting(e -> e.getText().toLowerCase())
-                .contains("game testing");
+        String dashboardString = new OrangeHRMHomePage().getDashboardDiv(WaitStrategy.PRESENCE).getText();
+        Assertions.assertThat(dashboardString)
+                .isEqualTo("Dashboard");
     }
 }
