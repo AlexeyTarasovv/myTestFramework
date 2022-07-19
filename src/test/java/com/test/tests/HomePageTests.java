@@ -27,5 +27,19 @@ public class HomePageTests extends BaseTest{
         String dashboardString = new OrangeHRMHomePage().getDashboardDiv(WaitStrategy.PRESENCE).getText();
         Assertions.assertThat(dashboardString)
                 .isEqualTo("Dashboard");
+
+        List<WebElement> webElementsImages = new OrangeHRMHomePage().getQuickLaunchImages();
+        Assertions.assertThat(webElementsImages)
+                .hasSize(6);
+
+        List<WebElement> webElementsTexts = new OrangeHRMHomePage().getQuickLaunchTexts();
+        Assertions.assertThat(webElementsTexts)
+                .hasSize(6)
+                .extracting(WebElement::getText)
+                .contains("Assign Leave", "Leave List", "Timesheets", "Apply Leave", "My Leave", "My Timesheet");
+
+        for (WebElement webElement : webElementsImages) {
+            System.out.println(webElement.getText());
+        }
     }
 }

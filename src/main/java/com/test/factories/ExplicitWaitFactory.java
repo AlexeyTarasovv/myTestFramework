@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.List;
 
 public class ExplicitWaitFactory {
 
@@ -35,6 +36,16 @@ public class ExplicitWaitFactory {
             element = DriverManager.getDriver().findElement(by);
         }
         return element;
+    }
+
+    public static List<WebElement> performExplicitWaitForList(By by){
+
+        List<WebElement> webElements;
+
+        webElements = new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(FrameworkConstants.getExplicitWait()))
+                    .until(ExpectedConditions.presenceOfAllElementsLocatedBy(by));
+
+        return webElements;
     }
 
 }

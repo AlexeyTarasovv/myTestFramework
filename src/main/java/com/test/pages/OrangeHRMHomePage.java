@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public final class OrangeHRMHomePage extends BasePage {
 
@@ -34,9 +35,11 @@ public final class OrangeHRMHomePage extends BasePage {
         return ExplicitWaitFactory.performExplicitWait(waitStrategy, h1Dashboard);
     }
 
-//    public ArrayList<WebElement> getQuickLauchImages(WaitStrategy waitStrategy) {
-//
-//        ArrayList<WebElement> elements = new ArrayList<>()
-//        return ExplicitWaitFactory.performExplicitWait(waitStrategy, quickLaungeImages);
-//    }
+    public List<WebElement> getQuickLaunchImages() {
+        return ExplicitWaitFactory.performExplicitWaitForList(quickLaungeImages);
+    }
+
+    public List<WebElement> getQuickLaunchTexts() {
+        return ExplicitWaitFactory.performExplicitWaitForList(quickLaungeTexts);
+    }
 }
