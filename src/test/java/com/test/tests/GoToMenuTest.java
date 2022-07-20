@@ -1,14 +1,8 @@
 package com.test.tests;
 
-import com.test.enums.WaitStrategy;
-import com.test.pages.GoToMenu;
-import com.test.pages.OrangeHRMHomePage;
+import com.test.pages.TabWebControl;
 import com.test.pages.OrangeHRMLoginPage;
-import org.assertj.core.api.Assertions;
-import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
-
-import java.util.List;
 
 public class GoToMenuTest extends BaseTest{
 
@@ -19,10 +13,12 @@ public class GoToMenuTest extends BaseTest{
         new OrangeHRMLoginPage()
                 .enterUserName("Admin").enterPassword("admin123").clickLogin();
 
-        new GoToMenu().clickDashboard();
+        new TabWebControl().clickDashboard();
 
         Thread.sleep(1000);
-        new GoToMenu().clickDirectory();
+        new TabWebControl().clickDirectory();
+
+        new TabWebControl().hoverOverMaintenance();
     }
 
 }

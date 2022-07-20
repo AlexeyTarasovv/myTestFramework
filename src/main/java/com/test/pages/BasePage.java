@@ -6,6 +6,7 @@ import com.test.factories.ExplicitWaitFactory;
 import com.test.reports.ExtentLogger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 public class BasePage {
 
@@ -25,5 +26,12 @@ public class BasePage {
 
     protected String getPageTitle() {
         return DriverManager.getDriver().getTitle();
+    }
+
+    protected void makeHover(By by, WaitStrategy waitStrategy, String elementName){
+        Actions actions = new Actions(DriverManager.getDriver());
+        WebElement element = ExplicitWaitFactory.performExplicitWait(waitStrategy, by);
+        actions.moveToElement(element).perform();
+        ExtentLogger.pass(elementName + " is hovered successfully");
     }
 }

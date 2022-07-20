@@ -28,4 +28,7 @@ public final class OrangeHRMLoginPage extends BasePage {
         return getPageTitle();
     }
 
+    public void makeHoverOverLoginBtn(){
+        makeHover(buttonLogin, WaitStrategy.PRESENCE, "LoginBtn");
+    }
 }
