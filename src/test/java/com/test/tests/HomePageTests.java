@@ -20,7 +20,7 @@ public class HomePageTests extends BaseTest{
     private HomePageTests() {}
 
     @Test
-    public void dashboardTextCheck(){
+    public void dashboardTextCheckTest(){
         new OrangeHRMLoginPage()
                 .enterUserName("Admin").enterPassword("admin123").clickLogin();
 
@@ -37,9 +37,5 @@ public class HomePageTests extends BaseTest{
                 .hasSize(6)
                 .extracting(WebElement::getText)
                 .contains("Assign Leave", "Leave List", "Timesheets", "Apply Leave", "My Leave", "My Timesheet");
-
-        for (WebElement webElement : webElementsImages) {
-            System.out.println(webElement.getText());
-        }
     }
 }

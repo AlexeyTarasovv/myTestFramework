@@ -6,8 +6,9 @@
     </listeners>
     <test thread-count="1" name="test">
         <classes>
-            <class name="com.test.tests.OrangeHRMTests"/>
-            <class name="com.test.tests.HomePageTests"/>
+<!--            <class name="com.test.tests.OrangeHRMTests"/>-->
+<!--            <class name="com.test.tests.HomePageTests"/>-->
+                <class name="com.test.tests.GoToMenuTest"/>
         </classes>
     </test>
 </suite>
